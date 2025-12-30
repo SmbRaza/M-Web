@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="p-8">
-      <h1 className="text-3xl font-bold">Masjid Website</h1>
-      <p>Welcome to My website!!!!!!</p>
+      <h1 className="text-3xl font-bold">Videos</h1>
+      <p>This is the Events Page</p>
     </main>
   );
 }
