@@ -1,11 +1,14 @@
--- CreateTable
-CREATE TABLE `events` (
-    `event_id` INTEGER NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(255) NOT NULL,
-    `description` VARCHAR(191) NULL,
-    `created_at` TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
-    `start_date` DATETIME(0) NOT NULL,
-    `end_date` DATETIME(0) NOT NULL,
+-- CreateSchema
+CREATE SCHEMA IF NOT EXISTS "public";
 
-    PRIMARY KEY (`event_id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- CreateTable
+CREATE TABLE "events" (
+    "event_id" SERIAL NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "description" TEXT,
+    "created_at" TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "start_date" TIMESTAMP(0) NOT NULL,
+    "end_date" TIMESTAMP(0) NOT NULL,
+
+    CONSTRAINT "events_pkey" PRIMARY KEY ("event_id")
+);
