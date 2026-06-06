@@ -29,7 +29,7 @@ const videos: Video[] = [
 
 function YouTubeEmbed({ video }: { video: Video }) {
   return (
-    <article className="overflow-hidden rounded-lg bg-white shadow-sm">
+    <article className="min-w-0 overflow-hidden rounded-lg bg-white shadow-sm">
       <div className="aspect-video w-full bg-gray-200">
         <iframe
           className="h-full w-full"
@@ -40,7 +40,7 @@ function YouTubeEmbed({ video }: { video: Video }) {
         />
       </div>
       <div className="p-4">
-        <h2 className="font-semibold text-gray-900">{video.title}</h2>
+        <h2 className="font-semibold text-gray-900 break-words">{video.title}</h2>
         <p className="mt-1 text-sm text-gray-500">
           Uploaded {new Date(video.uploadedAt).toLocaleDateString()}
         </p>
@@ -57,10 +57,10 @@ export default function VideosPage() {
   const [latestVideo, ...recentVideos] = sortedVideos;
 
   return (
-    <main className="min-h-screen bg-[#f7f5f0] px-6 py-10 text-gray-800">
+    <main className="min-h-screen bg-[#f7f5f0] px-4 sm:px-6 py-8 sm:py-10 text-gray-800">
       <section className="mx-auto max-w-6xl">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Videos</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Videos</h1>
           <p className="mt-2 text-gray-600">Latest talks, khutbahs, and updates.</p>
         </div>
 

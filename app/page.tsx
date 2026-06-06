@@ -3,22 +3,22 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#f7f5f0] text-gray-800">
       {/* Header */}
       <header className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between"></div>
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-4xl font-extrabold mb-4 text-gray-900">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20 text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-gray-900">
           Welcome to Masjid
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+        <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8">
           A place of worship, learning, and community. Join us for daily prayers,
           events, and initiatives that bring our community together.
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <a
             href="/events"
-            className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 transition"
+            className="min-h-11 w-full sm:w-auto px-6 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 transition"
           >
             View Events
           </a>
@@ -26,7 +26,7 @@ export default function HomePage() {
       </section>
 
       {/* Info Cards */}
-      <section className="max-w-6xl mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-14 md:pb-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h3 className="text-lg font-bold text-green-700 mb-2">
             Daily Prayers
@@ -59,7 +59,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="bg-white border-t">
-        <div className="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-gray-500">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 text-center text-sm text-gray-500">
           © {new Date().getFullYear()} Masjid. All rights reserved.
         </div>
       </footer>

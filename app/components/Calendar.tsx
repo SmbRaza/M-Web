@@ -174,18 +174,18 @@ export default function Calendar() {
   const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-sm p-6">
+    <div className="w-full max-w-4xl min-w-0 mx-auto bg-white rounded-xl shadow-sm p-3 sm:p-4 md:p-6">
       {/* Header with month and navigation */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex-1"></div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center flex-1 tracking-wide">
+      <div className="flex items-center justify-between gap-2 mb-4 md:mb-6">
+        <div className="hidden sm:block flex-1"></div>
+        <h2 className="min-w-0 text-xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 text-center flex-1 tracking-wide">
   {monthName}
 </h2>
 
         <div className="flex items-center gap-2 flex-1 justify-end">
           <button
             onClick={goToPreviousMonth}
-            className="p-2 hover:bg-gray-100 text-gray-600 hover:text-gray-900 rounded-lg transition-colors"
+            className="min-h-11 min-w-11 p-2 hover:bg-gray-100 text-gray-600 hover:text-gray-900 rounded-lg transition-colors"
 
             aria-label="Previous month"
           >
@@ -201,7 +201,7 @@ export default function Calendar() {
           </button>
           <button
             onClick={goToNextMonth}
-            className="p-2 hover:bg-gray-100 text-gray-600 hover:text-gray-900 rounded-lg transition-colors"
+            className="min-h-11 min-w-11 p-2 hover:bg-gray-100 text-gray-600 hover:text-gray-900 rounded-lg transition-colors"
             aria-label="Next month"
           >
             <svg
@@ -218,21 +218,21 @@ export default function Calendar() {
       </div>
       
       {/* Day names header */}
-      <div className="grid grid-cols-7 gap-1 mb-2">
+      <div className="grid grid-cols-7 gap-0.5 sm:gap-1 mb-2">
         {dayNames.map((day) => (
-          <div key={day} className="text-center text-sm font-semibold text-gray-600 py-2 uppercase tracking-wider">
+          <div key={day} className="text-center text-[10px] sm:text-sm font-semibold text-gray-600 py-2 uppercase tracking-wider">
             {day}
           </div>
         ))}
       </div>
       
       {/* Calendar grid */}
-      <div className="grid grid-cols-7 gap-1">
+      <div className="grid grid-cols-7 gap-0.5 sm:gap-1">
         {days.map((day, index) => (
           <div
             key={index}
             className={`
-                aspect-square rounded-lg p-2 border
+                min-w-0 aspect-square rounded-md sm:rounded-lg p-1 sm:p-2 border
                 ${
                   day === null
                     ? 'bg-gray-50 border-gray-200'
@@ -249,8 +249,8 @@ export default function Calendar() {
           >
             {day !== null && (
               <div className="flex flex-col h-full relative">
-                <div className="flex justify-between items-start w-full mb-1">
-                  <div className="text-sm font-semibold">{day}</div>
+                <div className="flex justify-between items-start gap-1 w-full mb-1">
+                  <div className="text-xs sm:text-sm font-semibold">{day}</div>
                   <div className={`text-xs font-medium ${
                     isToday(day)
                       ? 'text-green-700'
@@ -269,7 +269,7 @@ export default function Calendar() {
                           e.stopPropagation();
                           handleEventClick(event);
                         }}
-                        className={`text-xs px-1.5 py-0.5 rounded truncate font-medium cursor-pointer hover:opacity-80 transition-opacity ${
+                        className={`text-[10px] sm:text-xs px-1 sm:px-1.5 py-0.5 rounded truncate font-medium cursor-pointer hover:opacity-80 transition-opacity ${
                           isToday(day)
                             ? 'bg-green-700 text-white'
                             : 'bg-green-600 text-white'
@@ -280,7 +280,7 @@ export default function Calendar() {
                       </button>
                     ))}
                     {getEventsForDate(day).length > 2 && (
-                      <div className={`text-xs px-1.5 py-0.5 rounded font-medium ${
+                      <div className={`text-[10px] sm:text-xs px-1 sm:px-1.5 py-0.5 rounded font-medium ${
                         isToday(day)
                           ? 'bg-green-700 text-white'
                           : 'bg-green-600 text-white'
@@ -315,7 +315,7 @@ export default function Calendar() {
       onClick={closeModal}
     >
       <div
-        className={`relative bg-white rounded-xl shadow-2xl max-w-lg w-full p-6 transform transition-all duration-300 flex flex-col ${
+        className={`relative bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[calc(100vh-2rem)] overflow-y-auto p-4 sm:p-6 transform transition-all duration-300 flex flex-col ${
           isModalOpen
             ? 'scale-100 opacity-100 translate-y-0'
             : 'scale-95 opacity-0 translate-y-4 pointer-events-none'
@@ -325,7 +325,7 @@ export default function Calendar() {
         {/* Close button */}
         <button
           onClick={closeModal}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 min-h-11 min-w-11 inline-flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
           aria-label="Close"
         >
           <svg
@@ -340,7 +340,7 @@ export default function Calendar() {
         </button>
 
         {/* Title */}
-        <h3 className="text-2xl font-bold text-center text-gray-900 mb-4">
+        <h3 className="pr-10 text-xl sm:text-2xl font-bold text-center text-gray-900 mb-4">
           {selectedEvent.name}
         </h3>
 

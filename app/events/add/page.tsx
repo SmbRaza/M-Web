@@ -65,9 +65,9 @@ export default function AddEventPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-[#f7f5f0] text-gray-800">
-      <div className="w-full max-w-2xl bg-white rounded-xl shadow-sm p-6">
-        <h1 className="text-3xl font-bold mb-6 text-gray-900">Add an Event</h1>
+    <main className="min-h-screen flex flex-col items-center justify-start md:justify-center px-4 py-6 sm:py-8 bg-[#f7f5f0] text-gray-800">
+      <div className="w-full max-w-2xl bg-white rounded-xl shadow-sm p-4 sm:p-6">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">Add an Event</h1>
         
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Event Title */}
@@ -82,7 +82,7 @@ export default function AddEventPage() {
               required
               value={formData.title}
               onChange={handleChange}
-              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="min-h-11 w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
               placeholder="Enter event title"
             />
           </div>
@@ -98,7 +98,7 @@ export default function AddEventPage() {
               rows={4}
               value={formData.description}
               onChange={handleChange}
-              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-none"
+              className="min-h-28 w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-none"
               placeholder="Enter event description"
             />
           </div>
@@ -116,7 +116,7 @@ export default function AddEventPage() {
                 required
                 value={formData.startDate}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                className="min-h-11 w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
               />
             </div>
             <div>
@@ -130,7 +130,7 @@ export default function AddEventPage() {
                 required
                 value={formData.startTime}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                className="min-h-11 w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function AddEventPage() {
                 name="endDate"
                 value={formData.endDate}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                className="min-h-11 w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
               />
             </div>
             <div>
@@ -160,7 +160,7 @@ export default function AddEventPage() {
                 name="endTime"
                 value={formData.endTime}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                className="min-h-11 w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
               />
             </div>
           </div>
@@ -178,24 +178,24 @@ export default function AddEventPage() {
               step="0.5"
               value={formData.duration}
               onChange={handleChange}
-              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="min-h-11 w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
               placeholder="e.g., 2.5 for 2 hours 30 minutes"
             />
           </div>
 
           {/* Submit Buttons */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 px-6 py-3 bg-green-700 hover:bg-green-800 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors"
+              className="min-h-11 flex-1 px-6 py-3 bg-green-700 hover:bg-green-800 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors"
             >
               {isSubmitting ? 'Creating...' : 'Create Event'}
             </button>
             <button
               type="button"
               onClick={() => router.push('/events')}
-              className="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold rounded-lg transition-colors"
+              className="min-h-11 px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold rounded-lg transition-colors"
             >
               Cancel
             </button>
